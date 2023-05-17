@@ -2,7 +2,7 @@
 Proyecto para la materia de Minería de Datos
 
 - [x] Data Cleaning
-- [ ] Descriptive Statistics
+- [x] Descriptive Statistics
 - [ ] Data Visualization
 - [ ] Statistic Test
 - [ ] Linear Models
