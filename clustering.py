@@ -92,3 +92,4 @@ def cluster(dataset: str):
     cluster_data(df, column_x='runtime', column_y='revenue')
     cluster_data(df, column_x='budget', column_y='popularity')
     cluster_data(df, column_x='budget', column_y='vote_average')
+    cluster_data(df, column_x='vote_average', column_y='popularity')
