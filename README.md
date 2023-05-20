@@ -3,10 +3,15 @@ Proyecto para la materia de Minería de Datos
 
 - [x] Data Cleaning
 - [x] Descriptive Statistics
-- [ ] Data Visualization
+- [x] Data Visualization
 - [ ] Statistic Test
-- [ ] Linear Models
+- [x] Linear Models
 - [ ] Forecasting
 - [ ] Data Classification
-- [ ] Data Clustering
-- [ ] Text Analysis
+- [x] Data Clustering
+- [x] Text Analysis
+
+TODO
+- [ ] More Descriptive Statistics
+- [ ] More Graphs
+- [ ] More Linear Regressions

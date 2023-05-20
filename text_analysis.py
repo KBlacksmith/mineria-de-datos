@@ -1,9 +1,13 @@
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
 def create_wordcloud(column: str): 
-    avoided_words = []
+    img_path = 'img/wordclouds'
+    if not os.path.exists(img_path): 
+        os.mkdir(img_path)
+
     df: pd.DataFrame = pd.read_csv('Dataset/clean_popular_movies.csv')
     words = ""
     for x in df.index: 
@@ -13,13 +17,10 @@ def create_wordcloud(column: str):
         words += " ".join(temp_words) + " "
     word_list = words.strip().split(" ")
 
-    #Research purposes
     all_words = ""
     for w in word_list: 
-        if w in avoided_words: 
-            continue 
         all_words += (w + " ")
-    #print(df)
+
     nube = WordCloud(background_color='white', min_font_size=5).generate(all_words)
     plt.close()
     plt.figure(figsize=(5, 5), facecolor=None)
@@ -27,8 +28,8 @@ def create_wordcloud(column: str):
     plt.axis("off")
     plt.tight_layout(pad=0)
     plt.title(f'{column.upper()} WORD CLOUD')
-    plt.show()
-    plt.savefig(f"img/{column}_word_cloud.png")
+    #plt.show()
+    plt.savefig(f"{img_path}/{column}_word_cloud.png")
     plt.close()
 
 def analyze_text(): 
