@@ -1,23 +1,22 @@
 import pandas as pd
 
-def clean_data(filename: str)->pd.DataFrame: 
-    df = pd.read_csv(filename)
+def clean_data(input_filename: str, output_filename: str)->pd.DataFrame: 
+    df = pd.read_csv(f'Dataset/{input_filename}')
     df = df.dropna()
     df = df.drop_duplicates()
+    release_year = []
+    release_month = []
     for x in df.index: 
         if df.loc[x, 'budget'] <= 0 or df.loc[x, 'revenue'] <= 0: 
             df.drop(x, inplace=True)
-    return df
-
-def test_df()->pd.DataFrame: 
-    technologies = {
-    'Courses':["Spark","PySpark","Hadoop","Python","PySpark","Spark"],
-    'Fee' :[20000,25000,26000,22000,24000,35000],
-    'Duration':['30day','40days','35days','40days','60days','60days'],
-    'Discount':[1000,2300,1200,2500,2000,2000]
-              }
-    df = pd.DataFrame(technologies)
-    return df
+        else: 
+            date_str: str = df.loc[x, 'release_date']
+            date: list = date_str.split("-")
+            release_year.append(date[0])
+            release_month.append(date[1])
+    df['release_year'] = release_year
+    df['release_month'] = release_month
+    df.to_csv(f'Dataset/{output_filename}')
 
 if __name__=="__main__": 
     archivo = "popular_10000_movies_tmdb.csv"
