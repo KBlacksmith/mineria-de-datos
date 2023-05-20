@@ -2,6 +2,7 @@ import pandas as pd
 from random import randint
 from math import inf
 import matplotlib.pyplot as plt
+from os import path, mkdir
 
 def get_points(df: pd.DataFrame, column_x: str, column_y: str) -> tuple[list, list]: 
     x_values = list()
@@ -40,6 +41,11 @@ def get_new_centroid(cluster: list) -> tuple:
     return (x_sum/len(cluster), y_sum / len(cluster))
 
 def cluster_data(df: pd.DataFrame, column_x: str, column_y: str, k = 3):
+
+    img_path = 'img/clusters'
+    if not path.exists(img_path): 
+        mkdir(img_path)
+
     x_values, y_values = get_points(df, column_x=column_x, column_y=column_y)
     centroids = get_centroids(k, x_values, y_values)
     
@@ -78,8 +84,7 @@ def cluster_data(df: pd.DataFrame, column_x: str, column_y: str, k = 3):
     plt.title(f'{column_x.upper()} vs. {column_y.upper()}')
     plt.xlabel(f'{column_x.upper()}')
     plt.ylabel(f'{column_y.upper()}')
-    plt.show()
-    plt.savefig(f'img/{column_x}_vs_{column_y}_clusters.png')
+    plt.savefig(f'{img_path}/{column_x}_vs_{column_y}_clusters.png')
     #print(new_clusters)
 
 def cluster(dataset: str): 
