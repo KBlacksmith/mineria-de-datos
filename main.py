@@ -36,7 +36,7 @@ if __name__=="__main__":
     data_analysis.analyze_data(clean_dataset)
     
     print("03 - Data Visualization")
-    #data_visualization.visualize_data()
+    data_visualization.visualize_data(clean_dataset)
     
     print("04 - Statistic Test")
     
@@ -48,7 +48,7 @@ if __name__=="__main__":
     print("07 - Data Classification")
     
     print("08 - Clustering")
-    clustering.cluster(clean_dataset)
+    #clustering.cluster(clean_dataset)
     
     print("09 - Text Analysis")
-    #text_analysis.analyze_text()
+    text_analysis.analyze_text()

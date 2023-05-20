@@ -61,7 +61,6 @@ def analyze_data(dataset: str):
 
     result = df.groupby('release_year')['id'].aggregate('count')
     print(result)
-    result.to_csv("Dataset/releases_by_year.csv")
     print_buffer()
 
     genres: dict = dict()
