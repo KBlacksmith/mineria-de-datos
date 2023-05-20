@@ -33,7 +33,7 @@ if __name__=="__main__":
     print(df.columns)
     
     print("02 - Data Analysis")
-    #data_analysis.analyze_data(clean_dataset)
+    data_analysis.analyze_data(clean_dataset)
     
     print("03 - Data Visualization")
     #data_visualization.visualize_data()
