@@ -54,19 +54,18 @@ def cluster_data(df: pd.DataFrame, column_x: str, column_y: str, k = 3):
 
     while old_clusters != new_clusters: 
         del old_clusters
-        distances: list[list] = list()
 
         old_clusters = new_clusters
         new_clusters = [ [] for c in centroids ]
 
         for idx in range(len(x_values)): 
-            distances.append( [] ) 
+            distance = 0
             smallest_distance = inf
             smallest_idx = -1
             for c in range(len(centroids)): 
-                distances[idx].append(get_distance(centroids[c], (x_values[idx], y_values[idx])))
-                if distances[idx][c] < smallest_distance: 
-                    smallest_distance = distances[idx][c]
+                distance = get_distance(centroids[c], (x_values[idx], y_values[idx]))
+                if distance < smallest_distance: 
+                    smallest_distance = distance
                     smallest_idx = c
                 new_clusters[smallest_idx].append((x_values[idx], y_values[idx]))
         centroids = []
@@ -93,3 +92,4 @@ def cluster(dataset: str):
     cluster_data(df, column_x='runtime', column_y='revenue')
     cluster_data(df, column_x='budget', column_y='popularity')
     cluster_data(df, column_x='budget', column_y='vote_average')
+    cluster_data(df, column_x='vote_average', column_y='popularity')
