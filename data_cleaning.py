@@ -3,6 +3,7 @@ from datetime import date
 
 def clean_data(input_filename: str, output_filename: str)->pd.DataFrame: 
     df = pd.read_csv(f'Dataset/{input_filename}')
+    print(df)
     df = df.dropna()
     df = df.drop_duplicates()
     release_year = []
@@ -18,6 +19,7 @@ def clean_data(input_filename: str, output_filename: str)->pd.DataFrame:
 
     df['release_year'] = release_year
     df['release_month'] = release_month
+    print(df)
     df.to_csv(f'Dataset/{output_filename}')
 
 if __name__=="__main__": 

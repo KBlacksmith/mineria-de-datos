@@ -28,7 +28,7 @@ def create_wordcloud(column: str):
     plt.axis("off")
     plt.tight_layout(pad=0)
     plt.title(f'{column.upper()} WORD CLOUD')
-    #plt.show()
+    plt.show()
     plt.savefig(f"{img_path}/{column}_word_cloud.png")
     plt.close()
 

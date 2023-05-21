@@ -32,25 +32,33 @@ if __name__=="__main__":
     df = pd.read_csv(f'Dataset/{clean_dataset}')
     print(df.columns)
     
+    print("---------------------")
     print("Data Analysis")
     #data_analysis.analyze_data(clean_dataset)
     
+    print("---------------------")
     print("Data Visualization")
     #data_visualization.visualize_data(clean_dataset)
     
+    print("---------------------")
     print("Statistic Test")
     
+    print("---------------------")
     print("Linear Model")
-    #linear_regression.get_linear_regressions()
+    linear_regression.get_linear_regressions()
     
+    print("---------------------")
     print("Forecasting")
-    #forecasting.forecasting()
+    forecasting.forecasting()
     
+    print("---------------------")
     print("Data Classification")
     classification.classify()
     
+    print("---------------------")
     print("Clustering")
     clustering.cluster(clean_dataset)
     
+    print("---------------------")
     print("Text Analysis")
     text_analysis.analyze_text()

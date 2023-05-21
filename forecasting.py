@@ -36,7 +36,8 @@ def forecasting():
     a = linear_regression(df_by_rev, x='release_date', y='revenue')
     print(a)
     plt_lr(df=df_by_rev, x='release_date', y='revenue', colors=('red', 'orange'), **a)
-    plt.show()
+    #plt.show()
+    plt.savefig('forecast.png')
     #print(df_by_rev)
     return
  

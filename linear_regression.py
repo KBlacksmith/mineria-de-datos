@@ -14,7 +14,7 @@ def regress_line_from_csv(df):
     plt.cla()
     plt.scatter(X, Y)
     plt.plot(X, Y_pred, color='red')
-    plt.show()
+    #plt.show()
 
 def regress_line(df: pd.DataFrame, x_axis: str, y_axis: str, agg_func = ''): 
 
@@ -40,6 +40,7 @@ def regress_line(df: pd.DataFrame, x_axis: str, y_axis: str, agg_func = ''):
     plt.xlabel(xlabel=x_axis.upper())
     plt.ylabel(ylabel=y_axis.upper())
     plt.title(label=x_axis.upper() + " vs. " + y_axis.upper())
+    #plt.show()
     plt.savefig(f'{img_path}/{x_axis}_vs_{y_axis}.png')
 
 def get_linear_regressions(): 
@@ -54,22 +55,3 @@ def get_linear_regressions():
     regress_line(df, x_axis='budget', y_axis='vote_average')
     regress_line(df, x_axis='vote_average', y_axis='popularity')
     return
-    #regress_line_from_csv('releases_by_year.csv')
-    df: pd.DataFrame = pd.read_csv('Dataset/clean_popular_movies.csv')
-    
-    #Releases by year
-    result = df.groupby('release_year')['id'].aggregate('count')
-    #print(result.keys())
-    X = np.array(result.keys()).reshape(-1, 1)
-    #print(result.values)
-    Y = np.array(result.values).reshape(-1, 1)
-
-    linear_regressor = LinearRegression()
-    linear_regressor.fit(X, Y)
-    Y_pred = linear_regressor.predict(X)
-    plt.cla()
-    plt.scatter(X, Y)
-    plt.plot(X, Y_pred, color='red')
-    plt.show()
-    return
-    regress_line_from_df('clean_popular_movies.csv', x_axis='release_year', y_axis='idx')

@@ -83,6 +83,7 @@ def cluster_data(df: pd.DataFrame, column_x: str, column_y: str, k = 3):
     plt.title(f'{column_x.upper()} vs. {column_y.upper()}')
     plt.xlabel(f'{column_x.upper()}')
     plt.ylabel(f'{column_y.upper()}')
+    plt.show()
     plt.savefig(f'{img_path}/{column_x}_vs_{column_y}_clusters.png')
     #print(new_clusters)
 
